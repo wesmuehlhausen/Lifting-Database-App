@@ -4,7 +4,7 @@ The **purpose** of this app is to keep track of your workouts, sleep, and diet. 
 
 - **Workouts** is focused specifically for powerlifting and bodybuilding i.e. "power-building". Workouts will be focused on either strength (powerlifting) or hypertrophy/mass (bodybuilding). Users will be able to log their workout into a database, view analytics, and generate new workouts with specific weights based on prior workouts.
 - **Diet** is something that I have found to be __nearly impossible__ to work effectively without proper logging and planning. Lifters can be either cutting or bulking depending on thier goals, and in my case it is bulking. In most cases, tracking macros (protein, carbs, and fat) is a good time/effort vs. outcome way to keep track of your diet. This portion of the app will keep track and see if you are hitting all of your goals as well as keep a database of all your foods to make it easier to input your food data. 
-- **Sleep** is subtle but very important. This keeps track of your sleep. Simple as that!
+- **Sleep** is subtle but very important. This keeps track of your sleep. Simple as that! I might throw in a sleep API using a fitbit. Not sure yet.
 
 ### Model 1 of this app is a simple program that consists of the following:
 #### Back-end: Java 

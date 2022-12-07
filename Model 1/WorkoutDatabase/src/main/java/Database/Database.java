@@ -32,6 +32,8 @@ public class Database {
     public Database(String username, String password){
         this.USERNAME = username;
         this.password = password;
+
+
     }
 
     public boolean connectToDatabase(){

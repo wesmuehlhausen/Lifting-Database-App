@@ -1,4 +1,4 @@
-package UI;
+package Garbage;
 
 import Database.Database;
 import Helper.DataCleaner;

@@ -1,21 +1,22 @@
 package UI;
 
-import Database.Database;
+import Database.PostgreSQL;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class LoginScreen extends JFrame implements ActionListener {
+
     Container container = getContentPane();
     JLabel userLabel = new JLabel("USERNAME");
     JLabel passwordLabel = new JLabel("PASSWORD");
     JTextField userTextField = new JTextField();
     JPasswordField passwordField = new JPasswordField();
     JButton loginButton = new JButton("LOGIN");
-    JButton resetButton = new JButton("CLEAR");
+    JButton signUp = new JButton("SIGN UP");
     JCheckBox showPassword = new JCheckBox("Show Password");
+    PostgreSQL psqlDatabase;
 
 
     public LoginScreen() {
@@ -24,10 +25,11 @@ public class LoginScreen extends JFrame implements ActionListener {
         addComponentsToContainer();
         addActionEvent();
         runLoginScreen();//Runs screen
+        psqlDatabase = new PostgreSQL();
     }
 
     public void runLoginScreen(){
-        setTitle("Login Form");
+        setTitle("Lifting Database - Login");
         setVisible(true);
         setBounds(10, 10, 370, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,9 +47,7 @@ public class LoginScreen extends JFrame implements ActionListener {
         passwordField.setBounds(150, 220, 150, 30);
         showPassword.setBounds(150, 250, 150, 30);
         loginButton.setBounds(50, 300, 100, 30);
-        resetButton.setBounds(200, 300, 100, 30);
-
-
+        signUp.setBounds(200, 300, 100, 30);
     }
 
     public void addComponentsToContainer() {
@@ -57,47 +57,48 @@ public class LoginScreen extends JFrame implements ActionListener {
         container.add(passwordField);
         container.add(showPassword);
         container.add(loginButton);
-        container.add(resetButton);
+        container.add(signUp);
     }
 
     public void addActionEvent() {
         loginButton.addActionListener(this);
-        resetButton.addActionListener(this);
+        signUp.addActionListener(this);
         showPassword.addActionListener(this);
     }
+
+    public void setFields(String username, String password){
+        userTextField.setText(username);
+        passwordField.setText(password);
+    }
+
+
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         if (e.getSource() == loginButton) {
-
-            String userText;
-            String pwdText;
-            userText = userTextField.getText();
-            pwdText = passwordField.getText();
-
-            Database data = new Database(userText, pwdText);
-            if(data.connectToDatabase()){//If connected to database correctly, return true
-                DataInputScreen dataInputScreen = new DataInputScreen(data);
-                JOptionPane.showMessageDialog(this, "Login Successful");//TODO go to the lifting screen
+            if(psqlDatabase.validateUserLogin(userTextField.getText(), passwordField.getText())){//If connected to database correctly, return true
+                String username = userTextField.getText();
+                setVisible(false);
+                HomeScreen homeScreen = new HomeScreen(username, psqlDatabase);
             }
             else
                 JOptionPane.showMessageDialog(this, "Invalid Username or Password");
         }
-        if (e.getSource() == resetButton) {
-            userTextField.setText("");
-            passwordField.setText("");
+
+        if (e.getSource() == signUp) {
+            setVisible(false);
+            NewUserScreen newUserScreen = new NewUserScreen(this);
         }
+
         if (e.getSource() == showPassword) {
             if (showPassword.isSelected()) {
                 passwordField.setEchoChar((char) 0);
             } else {
                 passwordField.setEchoChar('*');
             }
-
-
         }
     }
-
 }
 

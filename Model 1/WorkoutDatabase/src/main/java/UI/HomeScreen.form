@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="UI.TestForm">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="UI.HomeScreen">
   <grid id="27dc6" binding="mainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
       <xy x="75" y="20" width="1020" height="590"/>
@@ -15,7 +15,7 @@
           <background color="-15394532"/>
           <enabled value="true"/>
           <minimumSize width="100" height="100"/>
-          <preferredSize width="120" height="120"/>
+          <preferredSize width="120" height="800"/>
         </properties>
         <border type="none"/>
         <children>
@@ -111,15 +111,53 @@
           </grid>
         </children>
       </grid>
-      <grid id="f9506" binding="mainContentPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
+      <grid id="f9506" binding="mainContentPanel" layout-manager="FlowLayout" hgap="0" vgap="0" flow-align="1">
         <constraints border-constraint="Center"/>
         <properties>
           <background color="-14538708"/>
-          <preferredSize width="100" height="100"/>
+          <preferredSize width="1280" height="800"/>
         </properties>
         <border type="none"/>
-        <children/>
+        <children>
+          <grid id="f2153" binding="mainContentPanelHeader" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints/>
+            <properties>
+              <alignmentX value="0.5"/>
+              <foreground color="-291841"/>
+              <inheritsPopupMenu value="false"/>
+              <preferredSize width="1280" height="120"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <grid id="73167" binding="mainContentPanelHeaderTitle" layout-manager="FlowLayout" hgap="60" vgap="0" flow-align="0">
+                <constraints/>
+                <properties>
+                  <preferredSize width="1280" height="80"/>
+                </properties>
+                <border type="none"/>
+                <children/>
+              </grid>
+              <grid id="e4b86" binding="mainContentPanelHeaderSubTitle" layout-manager="FlowLayout" hgap="60" vgap="5" flow-align="0">
+                <constraints/>
+                <properties>
+                  <preferredSize width="1280" height="40"/>
+                </properties>
+                <border type="none"/>
+                <children/>
+              </grid>
+            </children>
+          </grid>
+          <grid id="a4cdc" binding="mainContentPanelBody" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints/>
+            <properties>
+              <foreground color="-6579301"/>
+              <preferredSize width="1280" height="680"/>
+            </properties>
+            <border type="none"/>
+            <children/>
+          </grid>
+        </children>
       </grid>
     </children>
   </grid>

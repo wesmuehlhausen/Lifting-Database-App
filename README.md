@@ -11,7 +11,7 @@ The **purpose** of this app is to keep track of your workouts, sleep, and diet. 
 - Java backend using Maven configuration which uses various dependencies. The backend performs various data analytics, database queries, and user account configuration.
 - This app is **hardened** to prevent SQL Injection, and keeps passwords stored safely as MD5 Hashes which have been salted using SHA1PRNG algorithm.
 #### Front-end: Swing
-- Developed in Swing using the IntelliJ GUI builder that I just realized was a thing.
+- Developed in Swing using the IntelliJ GUI builder that I just realized was a thing. This will eventually evolve into some web-based front end.
 #### Database: PostgreSQL, MongoDB ATlas, MongoDB Compass
 - This app uses a PostgreSQL server run locally on my machine. It also has been configured to run on a cloud database from MongoDB Atlas depending on user settings. I also built it so it can use a local database MongoDB Compass. But if I end up putting this on my website for people to download and use, the initial version will probably use a local database in the application to make it simpler for the user. 
 
